@@ -9,10 +9,10 @@ const  PostSchema = new mongoose.Schema({
     type:String,
     required:true,
  },
- text2 : {
-   type:String,
-   required:true,
-},
+//  text2 : {
+//    type:String,
+//    required:true,
+// },
  price : {
     type:Number,
     required:true,
@@ -23,8 +23,8 @@ const  PostSchema = new mongoose.Schema({
    required:true,
 },
   imgmain:String,
-  imgsecond:String,
-  imgthird:String
+//   imgsecond:String,
+//   imgthird:String
 // ids : {
 //    type:Number,
 //    required:true,

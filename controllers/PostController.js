@@ -54,12 +54,12 @@ export const getAll = async (req, res) => {
         {
           title : req.body.title,
           text1 : req.body.text1,
-          text2 : req.body.text2,
+          // text2 : req.body.text2,
           price : req.body.price,
           category: req.body.category,
           imgmain:req.body.imgmain,
-          imgsecond:req.body.imgsecond,
-          imgthird:req.body.imgthird
+          // imgsecond:req.body.imgsecond,
+          // imgthird:req.body.imgthird
         }
         );
       res.json({
