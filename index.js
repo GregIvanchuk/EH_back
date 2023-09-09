@@ -42,35 +42,35 @@ mongoose.connect(process.env.MONGODB_URI,{
 });
 
  "============================================================="
-//  const botToken =  process.env.TELEGRAM_BOT_TOKEN;
-//  const bot = new TelegramBot(botToken, { polling: true })
-//  app.use(express.urlencoded({ extended: true }));
+ const botToken =  process.env.TELEGRAM_BOT_TOKEN;
+ const bot = new TelegramBot(botToken, { polling: true })
+ app.use(express.urlencoded({ extended: true }));
 
-//  function sendTelegramMessage(chatId, message) {
-//     bot.sendMessage(chatId, message);
-//   }
-//   app.post('/form', (req, res) => {
-//     const chatId = process.env.TELEGRAM_CHAT_ID;
-//     const { name, email, phone, details, letter } = req.body;
-//     const telegramMessage = `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\nMesssage: ${letter}\nDetails: ${details}`;
+ function sendTelegramMessage(chatId, message) {
+    bot.sendMessage(chatId, message);
+  }
+  app.post('/form', (req, res) => {
+    const chatId = process.env.TELEGRAM_CHAT_ID;
+    const { name, email, phone, details, letter } = req.body;
+    const telegramMessage = `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\nMesssage: ${letter}\nDetails: ${details}`;
   
-//     sendTelegramMessage(chatId, telegramMessage)
-//     res.send('Form submitted successfully!');
-//   });
-//   app.post('/form2', (req, res) => {
-//     const chatId = process.env.TELEGRAM_CHAT_ID;
-//     const { fullName, phone, city,descr, items, totalCount, cartTotalPrice , email } = req.body;
+    sendTelegramMessage(chatId, telegramMessage)
+    res.send('Form submitted successfully!');
+  });
+  app.post('/form2', (req, res) => {
+    const chatId = process.env.TELEGRAM_CHAT_ID;
+    const { fullName, phone, city, items, totalCount, cartTotalPrice , email } = req.body;
   
-//     let itemsText = '';
-//     for (let i = 0; i < items.length; i++) {
-//       const { title, price, count } = items[i];
-//       itemsText += `${title} x ${count} - ${price} грн\n`;
-//     }
+    let itemsText = '';
+    for (let i = 0; i < items.length; i++) {
+      const { title, price, count } = items[i];
+      itemsText += `${title} x ${count} - ${price} грн\n`;
+    }
   
-//     const telegramMessage = `Name: ${fullName}\nPhone: ${phone}\nEmail: ${email}\nCity: ${city}\nSizeRing: ${descr}\n\n${itemsText}\nTotalCount: ${totalCount}\nTotalPrice: ${cartTotalPrice}`;
-//     sendTelegramMessage(chatId, telegramMessage);
-//     res.send('Form submitted successfully!')
-//   });
+    const telegramMessage = `Name: ${fullName}\nPhone: ${phone}\nEmail: ${email}\nCity: ${city}\n${itemsText}\nTotalCount: ${totalCount}\nTotalPrice: ${cartTotalPrice}`;
+    sendTelegramMessage(chatId, telegramMessage);
+    res.send('Form submitted successfully!')
+  });
 
 
 
